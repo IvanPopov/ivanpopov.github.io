@@ -67,9 +67,9 @@ bool update(inout Part part)
 
 void prerender(inout Part part, out DefaultShaderInput input)
 {
-    input.pos.xyz = part.pos + part.dir * sin(part.timelife * 30.f) * 0.3f;
+    input.pos.xyz = part.pos + part.dir * sin(part.timelife * 30.f) * 0.1f;
     input.size = part.size;
-    input.color = float4(float3((length(input.pos) - 1.6f) * 10.f), 1.0f);
+    input.color = float4(float3((length(input.pos) - 1.0f) * 10.f), 1.0f - part.timelife);
 }
 
 
@@ -80,8 +80,8 @@ partFx project.awesome {
     UpdateRoutine = compile update();
 
     pass P0 {
-        Sorting = TRUE;
-        DefaultShader = TRUE;
+        Sorting = true;
+        Geometry = sphere;
         PrerenderRoutine = compile prerender();
     }
 }
