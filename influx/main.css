@@ -17556,7 +17556,7 @@ ol.ui.horizontal.list li:before,
   bottom: 0px;
   margin-top: 0em;
   margin-bottom: 0em;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.075), none;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.075);
   border-radius: 0em 0em 4px 4px;
 }
 /* Only */
@@ -17905,7 +17905,7 @@ ol.ui.horizontal.list li:before,
   margin-top: 0em;
   top: 0px;
   margin-bottom: 1rem;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.075), none;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.075);
   border-radius: 0em 0em 4px 4px;
 }
 .ui.segment[class*="bottom attached"]:last-child {
@@ -23546,7 +23546,7 @@ Floated Menu / Item
   border-color: #DDDDDD;
   font-weight: bold;
   margin-bottom: -1px;
-  box-shadow: none;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.075);
   border-radius: 0.2307em 0.2307em 0px 0px !important;
 }
 /* Coupling with segment for attachment */
@@ -24738,6 +24738,10 @@ Floated Menu / Item
 *******************************/
 .ui.menu .item > .label {
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+}
+.ui.tabular.menu .active.item {
+  clip-path: inset(0 0 0px 0);
+  z-index: 2;
 }
 /*!
  * # Semantic UI - Message
