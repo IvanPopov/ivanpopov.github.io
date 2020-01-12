@@ -1,38 +1,10 @@
+#include "auxiliary/noise.fx"
+#include "auxiliary/random.fx"
+
 uniform float elapsedTime;
 uniform float elapsedTimeLevel;
 
-float random (float2 uv)
-{
-    return frac(sin(dot(uv, float2(12.9898f, 78.233f))) 
-        * 43758.5453123f);
-}
-
-
-
-float noise (in float2 st) {
-    float2 i = floor(st);
-    float2 f = frac(st);
-
-    // Four corners in 2D of a tile
-    float a = random(i);
-    float b = random(i + float2(1.0f, 0.0f));
-    float c = random(i + float2(0.0f, 1.0f));
-    float d = random(i + float2(1.0f, 1.0f));
-
-    // Smooth Interpolation
-
-    // Cubic Hermine Curve.  Same as SmoothStep()
-    float2 u = f * f * (3.0f - 2.0f * f);
-    // u = smoothstep(0.,1.,f);
-
-    // Mix 4 coorners percentages
-    return lerp(a, b, u.x) +
-            (c - a) * u.y * (1.0f - u.x) +
-            (d - b) * u.x * u.y;
-}
-
-
-float3 randUnitCircle(int partId) 
+float3 randUnitCircle(uint partId) 
 {
     float2 seed = float2(elapsedTimeLevel, (float)partId * elapsedTime);
     float alpha = random(seed) * 3.14f * 2.f;
@@ -88,7 +60,7 @@ float3 sizeFromPos(float3 pos) {
 /////////////////////////////////////////////////////////////////////
 // Init Routine
 /////////////////////////////////////////////////////////////////////
-void Init(out Part part, int partId)
+void Init(out Part part, uint partId)
 {
     
     part.pos = randUnitCircle(partId);
@@ -181,6 +153,31 @@ PixelInputType VSCylinders(PartInstance partInstance, Geometry geometry)
 }
 
 
+PixelInputType VSCylinders2(PartInstance partInstance, Geometry geometry)
+{
+    PixelInputType res;
+
+    float3 wnorm;
+    wnorm = mul(modelMatrix, float4(geometry.normal, 0.f)).xyz;
+     
+    // Calculate the position of the vertex against the world, view, and projection matrices.
+    res.position = mul(modelMatrix, float4(partInstance.pos + geometry.position * partInstance.size, 1.f));
+    res.position = mul(viewMatrix, res.position);
+    res.position = mul(projectionMatrix, res.position);
+    
+    // Store the input color for the pixel shader to use.
+    float3 lightDir;
+    lightDir = normalize(float3(1.f, 4.f, 0.f));
+
+    float NdL;
+    NdL = max(0.f, dot(geometry.normal, lightDir) * 0.5);
+    // partInstance.color + 
+    res.color = float4(abs(wnorm), partInstance.color.a);
+    
+    return res;
+}
+
+
 float4 PSCylinders(PixelInputType input) : COLOR
 {
     return input.color;
@@ -206,7 +203,7 @@ float4 PSLines(PixelInputType input) : COLOR
 /////////////////////////////////////////////////////////////////////
 partFx holographicTable 
 {
-    Capacity = 4000;
+    Capacity = 4096;
     SpawnRoutine = compile Spawn();
     InitRoutine = compile Init();
     UpdateRoutine = compile Update();
@@ -234,5 +231,25 @@ partFx holographicTable
 
         VertexShader = compile VSLines();
         PixelShader = compile PSLines();
+    }
+}
+
+
+partFx coloredNoise
+{
+    Capacity = 4096;
+    SpawnRoutine = compile Spawn();
+    InitRoutine = compile Init();
+    UpdateRoutine = compile Update();
+
+    pass Cylinders {
+        Sorting = true;
+        PrerenderRoutine = compile PrerenderCylinders();
+        Geometry = Cylinder;
+
+        ZWriteEnable = false;
+
+        VertexShader = compile VSCylinders2();
+        PixelShader = compile PSCylinders();
     }
 }
