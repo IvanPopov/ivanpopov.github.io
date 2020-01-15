@@ -1,0 +1,2141 @@
+<!DOCTYPE html><html><head>
+      <title>index</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <style>
+      /*!
+ * reveal.js
+ * http://revealjs.com
+ * MIT licensed
+ *
+ * Copyright (C) 2018 Hakim El Hattab, http://hakim.se
+ */
+/*********************************************
+ * RESET STYLES
+ *********************************************/
+html, body, .reveal div, .reveal span, .reveal applet, .reveal object, .reveal iframe,
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal p, .reveal blockquote, .reveal pre,
+.reveal a, .reveal abbr, .reveal acronym, .reveal address, .reveal big, .reveal cite, .reveal code,
+.reveal del, .reveal dfn, .reveal em, .reveal img, .reveal ins, .reveal kbd, .reveal q, .reveal s, .reveal samp,
+.reveal small, .reveal strike, .reveal strong, .reveal sub, .reveal sup, .reveal tt, .reveal var,
+.reveal b, .reveal u, .reveal center,
+.reveal dl, .reveal dt, .reveal dd, .reveal ol, .reveal ul, .reveal li,
+.reveal fieldset, .reveal form, .reveal label, .reveal legend,
+.reveal table, .reveal caption, .reveal tbody, .reveal tfoot, .reveal thead, .reveal tr, .reveal th, .reveal td,
+.reveal article, .reveal aside, .reveal canvas, .reveal details, .reveal embed,
+.reveal figure, .reveal figcaption, .reveal footer, .reveal header, .reveal hgroup,
+.reveal menu, .reveal nav, .reveal output, .reveal ruby, .reveal section, .reveal summary,
+.reveal time, .reveal mark, .reveal audio, .reveal video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  /* font: inherit; */
+  vertical-align: baseline; }
+
+.reveal article, .reveal aside, .reveal details, .reveal figcaption, .reveal figure,
+.reveal footer, .reveal header, .reveal hgroup, .reveal menu, .reveal nav, .reveal section {
+  display: block; }
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+body {
+  position: relative;
+  line-height: 1;
+  background-color: #fff;
+  color: #000; }
+
+/*********************************************
+ * VIEW FRAGMENTS
+ *********************************************/
+.reveal .slides section .fragment {
+  opacity: 0;
+  visibility: hidden;
+  transition: all .2s ease; }
+  .reveal .slides section .fragment.visible {
+    opacity: 1;
+    visibility: inherit; }
+
+.reveal .slides section .fragment.grow {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.grow.visible {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3); }
+
+.reveal .slides section .fragment.shrink {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.shrink.visible {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7); }
+
+.reveal .slides section .fragment.zoom-in {
+  -webkit-transform: scale(0.1);
+          transform: scale(0.1); }
+  .reveal .slides section .fragment.zoom-in.visible {
+    -webkit-transform: none;
+            transform: none; }
+
+.reveal .slides section .fragment.fade-out {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.fade-out.visible {
+    opacity: 0;
+    visibility: hidden; }
+
+.reveal .slides section .fragment.semi-fade-out {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.semi-fade-out.visible {
+    opacity: 0.5;
+    visibility: inherit; }
+
+.reveal .slides section .fragment.strike {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike.visible {
+    text-decoration: line-through; }
+
+.reveal .slides section .fragment.fade-up {
+  -webkit-transform: translate(0, 20%);
+          transform: translate(0, 20%); }
+  .reveal .slides section .fragment.fade-up.visible {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+.reveal .slides section .fragment.fade-down {
+  -webkit-transform: translate(0, -20%);
+          transform: translate(0, -20%); }
+  .reveal .slides section .fragment.fade-down.visible {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+.reveal .slides section .fragment.fade-right {
+  -webkit-transform: translate(-20%, 0);
+          transform: translate(-20%, 0); }
+  .reveal .slides section .fragment.fade-right.visible {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+.reveal .slides section .fragment.fade-left {
+  -webkit-transform: translate(20%, 0);
+          transform: translate(20%, 0); }
+  .reveal .slides section .fragment.fade-left.visible {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+.reveal .slides section .fragment.fade-in-then-out,
+.reveal .slides section .fragment.current-visible {
+  opacity: 0;
+  visibility: hidden; }
+  .reveal .slides section .fragment.fade-in-then-out.current-fragment,
+  .reveal .slides section .fragment.current-visible.current-fragment {
+    opacity: 1;
+    visibility: inherit; }
+
+.reveal .slides section .fragment.fade-in-then-semi-out {
+  opacity: 0;
+  visibility: hidden; }
+  .reveal .slides section .fragment.fade-in-then-semi-out.visible {
+    opacity: 0.5;
+    visibility: inherit; }
+  .reveal .slides section .fragment.fade-in-then-semi-out.current-fragment {
+    opacity: 1;
+    visibility: inherit; }
+
+.reveal .slides section .fragment.highlight-red,
+.reveal .slides section .fragment.highlight-current-red,
+.reveal .slides section .fragment.highlight-green,
+.reveal .slides section .fragment.highlight-current-green,
+.reveal .slides section .fragment.highlight-blue,
+.reveal .slides section .fragment.highlight-current-blue {
+  opacity: 1;
+  visibility: inherit; }
+
+.reveal .slides section .fragment.highlight-red.visible {
+  color: #ff2c2d; }
+
+.reveal .slides section .fragment.highlight-green.visible {
+  color: #17ff2e; }
+
+.reveal .slides section .fragment.highlight-blue.visible {
+  color: #1b91ff; }
+
+.reveal .slides section .fragment.highlight-current-red.current-fragment {
+  color: #ff2c2d; }
+
+.reveal .slides section .fragment.highlight-current-green.current-fragment {
+  color: #17ff2e; }
+
+.reveal .slides section .fragment.highlight-current-blue.current-fragment {
+  color: #1b91ff; }
+
+/*********************************************
+ * DEFAULT ELEMENT STYLES
+ *********************************************/
+/* Fixes issue in Chrome where italic fonts did not appear when printing to PDF */
+.reveal:after {
+  content: '';
+  font-style: italic; }
+
+.reveal iframe {
+  z-index: 1; }
+
+/** Prevents layering issues in certain browser/transition combinations */
+.reveal a {
+  position: relative; }
+
+.reveal .stretch {
+  max-width: none;
+  max-height: none; }
+
+.reveal pre.stretch code {
+  height: 100%;
+  max-height: 100%;
+  box-sizing: border-box; }
+
+/*********************************************
+ * CONTROLS
+ *********************************************/
+@-webkit-keyframes bounce-right {
+  0%, 10%, 25%, 40%, 50% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  20% {
+    -webkit-transform: translateX(10px);
+            transform: translateX(10px); }
+  30% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px); } }
+@keyframes bounce-right {
+  0%, 10%, 25%, 40%, 50% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  20% {
+    -webkit-transform: translateX(10px);
+            transform: translateX(10px); }
+  30% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px); } }
+
+@-webkit-keyframes bounce-down {
+  0%, 10%, 25%, 40%, 50% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  20% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px); }
+  30% {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px); } }
+
+@keyframes bounce-down {
+  0%, 10%, 25%, 40%, 50% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  20% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px); }
+  30% {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px); } }
+
+.reveal .controls {
+  display: none;
+  position: absolute;
+  top: auto;
+  bottom: 12px;
+  right: 12px;
+  left: auto;
+  z-index: 1;
+  color: #000;
+  pointer-events: none;
+  font-size: 10px; }
+  .reveal .controls button {
+    position: absolute;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    color: currentColor;
+    -webkit-transform: scale(0.9999);
+            transform: scale(0.9999);
+    transition: color 0.2s ease, opacity 0.2s ease, -webkit-transform 0.2s ease;
+    transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+    z-index: 2;
+    pointer-events: auto;
+    font-size: inherit;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent; }
+  .reveal .controls .controls-arrow:before,
+  .reveal .controls .controls-arrow:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2.6em;
+    height: 0.5em;
+    border-radius: 0.25em;
+    background-color: currentColor;
+    transition: all 0.15s ease, background-color 0.8s ease;
+    -webkit-transform-origin: 0.2em 50%;
+            transform-origin: 0.2em 50%;
+    will-change: transform; }
+  .reveal .controls .controls-arrow {
+    position: relative;
+    width: 3.6em;
+    height: 3.6em; }
+    .reveal .controls .controls-arrow:before {
+      -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(45deg);
+              transform: translateX(0.5em) translateY(1.55em) rotate(45deg); }
+    .reveal .controls .controls-arrow:after {
+      -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(-45deg);
+              transform: translateX(0.5em) translateY(1.55em) rotate(-45deg); }
+    .reveal .controls .controls-arrow:hover:before {
+      -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(40deg);
+              transform: translateX(0.5em) translateY(1.55em) rotate(40deg); }
+    .reveal .controls .controls-arrow:hover:after {
+      -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(-40deg);
+              transform: translateX(0.5em) translateY(1.55em) rotate(-40deg); }
+    .reveal .controls .controls-arrow:active:before {
+      -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(36deg);
+              transform: translateX(0.5em) translateY(1.55em) rotate(36deg); }
+    .reveal .controls .controls-arrow:active:after {
+      -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(-36deg);
+              transform: translateX(0.5em) translateY(1.55em) rotate(-36deg); }
+  .reveal .controls .navigate-left {
+    right: 6.4em;
+    bottom: 3.2em;
+    -webkit-transform: translateX(-10px);
+            transform: translateX(-10px); }
+  .reveal .controls .navigate-right {
+    right: 0;
+    bottom: 3.2em;
+    -webkit-transform: translateX(10px);
+            transform: translateX(10px); }
+    .reveal .controls .navigate-right .controls-arrow {
+      -webkit-transform: rotate(180deg);
+              transform: rotate(180deg); }
+    .reveal .controls .navigate-right.highlight {
+      -webkit-animation: bounce-right 2s 50 both ease-out;
+              animation: bounce-right 2s 50 both ease-out; }
+  .reveal .controls .navigate-up {
+    right: 3.2em;
+    bottom: 6.4em;
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px); }
+    .reveal .controls .navigate-up .controls-arrow {
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg); }
+  .reveal .controls .navigate-down {
+    right: 3.2em;
+    bottom: 0;
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px); }
+    .reveal .controls .navigate-down .controls-arrow {
+      -webkit-transform: rotate(-90deg);
+              transform: rotate(-90deg); }
+    .reveal .controls .navigate-down.highlight {
+      -webkit-animation: bounce-down 2s 50 both ease-out;
+              animation: bounce-down 2s 50 both ease-out; }
+  .reveal .controls[data-controls-back-arrows="faded"] .navigate-left.enabled,
+  .reveal .controls[data-controls-back-arrows="faded"] .navigate-up.enabled {
+    opacity: 0.3; }
+    .reveal .controls[data-controls-back-arrows="faded"] .navigate-left.enabled:hover,
+    .reveal .controls[data-controls-back-arrows="faded"] .navigate-up.enabled:hover {
+      opacity: 1; }
+  .reveal .controls[data-controls-back-arrows="hidden"] .navigate-left.enabled,
+  .reveal .controls[data-controls-back-arrows="hidden"] .navigate-up.enabled {
+    opacity: 0;
+    visibility: hidden; }
+  .reveal .controls .enabled {
+    visibility: visible;
+    opacity: 0.9;
+    cursor: pointer;
+    -webkit-transform: none;
+            transform: none; }
+  .reveal .controls .enabled.fragmented {
+    opacity: 0.5; }
+  .reveal .controls .enabled:hover,
+  .reveal .controls .enabled.fragmented:hover {
+    opacity: 1; }
+
+.reveal:not(.has-vertical-slides) .controls .navigate-left {
+  bottom: 1.4em;
+  right: 5.5em; }
+
+.reveal:not(.has-vertical-slides) .controls .navigate-right {
+  bottom: 1.4em;
+  right: 0.5em; }
+
+.reveal:not(.has-horizontal-slides) .controls .navigate-up {
+  right: 1.4em;
+  bottom: 5em; }
+
+.reveal:not(.has-horizontal-slides) .controls .navigate-down {
+  right: 1.4em;
+  bottom: 0.5em; }
+
+.reveal.has-dark-background .controls {
+  color: #fff; }
+
+.reveal.has-light-background .controls {
+  color: #000; }
+
+.reveal.no-hover .controls .controls-arrow:hover:before,
+.reveal.no-hover .controls .controls-arrow:active:before {
+  -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(45deg);
+          transform: translateX(0.5em) translateY(1.55em) rotate(45deg); }
+
+.reveal.no-hover .controls .controls-arrow:hover:after,
+.reveal.no-hover .controls .controls-arrow:active:after {
+  -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(-45deg);
+          transform: translateX(0.5em) translateY(1.55em) rotate(-45deg); }
+
+@media screen and (min-width: 500px) {
+  .reveal .controls[data-controls-layout="edges"] {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; }
+  .reveal .controls[data-controls-layout="edges"] .navigate-left,
+  .reveal .controls[data-controls-layout="edges"] .navigate-right,
+  .reveal .controls[data-controls-layout="edges"] .navigate-up,
+  .reveal .controls[data-controls-layout="edges"] .navigate-down {
+    bottom: auto;
+    right: auto; }
+  .reveal .controls[data-controls-layout="edges"] .navigate-left {
+    top: 50%;
+    left: 8px;
+    margin-top: -1.8em; }
+  .reveal .controls[data-controls-layout="edges"] .navigate-right {
+    top: 50%;
+    right: 8px;
+    margin-top: -1.8em; }
+  .reveal .controls[data-controls-layout="edges"] .navigate-up {
+    top: 8px;
+    left: 50%;
+    margin-left: -1.8em; }
+  .reveal .controls[data-controls-layout="edges"] .navigate-down {
+    bottom: 8px;
+    left: 50%;
+    margin-left: -1.8em; } }
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  position: absolute;
+  display: none;
+  height: 3px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff; }
+
+.reveal .progress:after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 10px;
+  width: 100%;
+  top: -10px; }
+
+.reveal .progress span {
+  display: block;
+  height: 100%;
+  width: 0px;
+  background-color: currentColor;
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+/*********************************************
+ * SLIDE NUMBER
+ *********************************************/
+.reveal .slide-number {
+  position: absolute;
+  display: block;
+  right: 8px;
+  bottom: 8px;
+  z-index: 31;
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 5px; }
+
+.reveal .slide-number a {
+  color: currentColor; }
+
+.reveal .slide-number-delimiter {
+  margin: 0 3px; }
+
+/*********************************************
+ * SLIDES
+ *********************************************/
+.reveal {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -ms-touch-action: none;
+      touch-action: none; }
+
+@media only screen and (orientation: landscape) {
+  .reveal.ua-iphone {
+    position: fixed; } }
+
+.reveal .slides {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 1;
+  text-align: center;
+  -webkit-perspective: 600px;
+          perspective: 600px;
+  -webkit-perspective-origin: 50% 40%;
+          perspective-origin: 50% 40%; }
+
+.reveal .slides > section {
+  -ms-perspective: 600px; }
+
+.reveal .slides > section,
+.reveal .slides > section > section {
+  display: none;
+  position: absolute;
+  width: 100%;
+  padding: 20px 0px;
+  pointer-events: auto;
+  z-index: 10;
+  -webkit-transform-style: flat;
+          transform-style: flat;
+  transition: -webkit-transform-origin 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), -webkit-transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), visibility 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: transform-origin 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), visibility 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+/* Global transition speed settings */
+.reveal[data-transition-speed="fast"] .slides section {
+  transition-duration: 400ms; }
+
+.reveal[data-transition-speed="slow"] .slides section {
+  transition-duration: 1200ms; }
+
+/* Slide-specific transition speed overrides */
+.reveal .slides section[data-transition-speed="fast"] {
+  transition-duration: 400ms; }
+
+.reveal .slides section[data-transition-speed="slow"] {
+  transition-duration: 1200ms; }
+
+.reveal .slides > section.stack {
+  padding-top: 0;
+  padding-bottom: 0;
+  pointer-events: none; }
+
+.reveal .slides > section.present,
+.reveal .slides > section > section.present {
+  display: block;
+  z-index: 11;
+  opacity: 1; }
+
+.reveal .slides > section:empty,
+.reveal .slides > section > section:empty,
+.reveal .slides > section[data-background-interactive],
+.reveal .slides > section > section[data-background-interactive] {
+  pointer-events: none; }
+
+.reveal.center,
+.reveal.center .slides,
+.reveal.center .slides section {
+  min-height: 0 !important; }
+
+/* Don't allow interaction with invisible slides */
+.reveal .slides > section.future,
+.reveal .slides > section > section.future,
+.reveal .slides > section.past,
+.reveal .slides > section > section.past {
+  pointer-events: none; }
+
+.reveal.overview .slides > section,
+.reveal.overview .slides > section > section {
+  pointer-events: auto; }
+
+.reveal .slides > section.past,
+.reveal .slides > section.future,
+.reveal .slides > section > section.past,
+.reveal .slides > section > section.future {
+  opacity: 0; }
+
+/*********************************************
+ * Mixins for readability of transitions
+ *********************************************/
+/*********************************************
+ * SLIDE TRANSITION
+ * Aliased 'linear' for backwards compatibility
+ *********************************************/
+.reveal.slide section {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden; }
+
+.reveal .slides > section[data-transition=slide].past,
+.reveal .slides > section[data-transition~=slide-out].past,
+.reveal.slide .slides > section:not([data-transition]).past {
+  -webkit-transform: translate(-150%, 0);
+          transform: translate(-150%, 0); }
+
+.reveal .slides > section[data-transition=slide].future,
+.reveal .slides > section[data-transition~=slide-in].future,
+.reveal.slide .slides > section:not([data-transition]).future {
+  -webkit-transform: translate(150%, 0);
+          transform: translate(150%, 0); }
+
+.reveal .slides > section > section[data-transition=slide].past,
+.reveal .slides > section > section[data-transition~=slide-out].past,
+.reveal.slide .slides > section > section:not([data-transition]).past {
+  -webkit-transform: translate(0, -150%);
+          transform: translate(0, -150%); }
+
+.reveal .slides > section > section[data-transition=slide].future,
+.reveal .slides > section > section[data-transition~=slide-in].future,
+.reveal.slide .slides > section > section:not([data-transition]).future {
+  -webkit-transform: translate(0, 150%);
+          transform: translate(0, 150%); }
+
+.reveal.linear section {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden; }
+
+.reveal .slides > section[data-transition=linear].past,
+.reveal .slides > section[data-transition~=linear-out].past,
+.reveal.linear .slides > section:not([data-transition]).past {
+  -webkit-transform: translate(-150%, 0);
+          transform: translate(-150%, 0); }
+
+.reveal .slides > section[data-transition=linear].future,
+.reveal .slides > section[data-transition~=linear-in].future,
+.reveal.linear .slides > section:not([data-transition]).future {
+  -webkit-transform: translate(150%, 0);
+          transform: translate(150%, 0); }
+
+.reveal .slides > section > section[data-transition=linear].past,
+.reveal .slides > section > section[data-transition~=linear-out].past,
+.reveal.linear .slides > section > section:not([data-transition]).past {
+  -webkit-transform: translate(0, -150%);
+          transform: translate(0, -150%); }
+
+.reveal .slides > section > section[data-transition=linear].future,
+.reveal .slides > section > section[data-transition~=linear-in].future,
+.reveal.linear .slides > section > section:not([data-transition]).future {
+  -webkit-transform: translate(0, 150%);
+          transform: translate(0, 150%); }
+
+/*********************************************
+ * CONVEX TRANSITION
+ * Aliased 'default' for backwards compatibility
+ *********************************************/
+.reveal .slides section[data-transition=default].stack,
+.reveal.default .slides section.stack {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
+.reveal .slides > section[data-transition=default].past,
+.reveal .slides > section[data-transition~=default-out].past,
+.reveal.default .slides > section:not([data-transition]).past {
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0); }
+
+.reveal .slides > section[data-transition=default].future,
+.reveal .slides > section[data-transition~=default-in].future,
+.reveal.default .slides > section:not([data-transition]).future {
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0); }
+
+.reveal .slides > section > section[data-transition=default].past,
+.reveal .slides > section > section[data-transition~=default-out].past,
+.reveal.default .slides > section > section:not([data-transition]).past {
+  -webkit-transform: translate3d(0, -300px, 0) rotateX(70deg) translate3d(0, -300px, 0);
+          transform: translate3d(0, -300px, 0) rotateX(70deg) translate3d(0, -300px, 0); }
+
+.reveal .slides > section > section[data-transition=default].future,
+.reveal .slides > section > section[data-transition~=default-in].future,
+.reveal.default .slides > section > section:not([data-transition]).future {
+  -webkit-transform: translate3d(0, 300px, 0) rotateX(-70deg) translate3d(0, 300px, 0);
+          transform: translate3d(0, 300px, 0) rotateX(-70deg) translate3d(0, 300px, 0); }
+
+.reveal .slides section[data-transition=convex].stack,
+.reveal.convex .slides section.stack {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
+.reveal .slides > section[data-transition=convex].past,
+.reveal .slides > section[data-transition~=convex-out].past,
+.reveal.convex .slides > section:not([data-transition]).past {
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0); }
+
+.reveal .slides > section[data-transition=convex].future,
+.reveal .slides > section[data-transition~=convex-in].future,
+.reveal.convex .slides > section:not([data-transition]).future {
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0); }
+
+.reveal .slides > section > section[data-transition=convex].past,
+.reveal .slides > section > section[data-transition~=convex-out].past,
+.reveal.convex .slides > section > section:not([data-transition]).past {
+  -webkit-transform: translate3d(0, -300px, 0) rotateX(70deg) translate3d(0, -300px, 0);
+          transform: translate3d(0, -300px, 0) rotateX(70deg) translate3d(0, -300px, 0); }
+
+.reveal .slides > section > section[data-transition=convex].future,
+.reveal .slides > section > section[data-transition~=convex-in].future,
+.reveal.convex .slides > section > section:not([data-transition]).future {
+  -webkit-transform: translate3d(0, 300px, 0) rotateX(-70deg) translate3d(0, 300px, 0);
+          transform: translate3d(0, 300px, 0) rotateX(-70deg) translate3d(0, 300px, 0); }
+
+/*********************************************
+ * CONCAVE TRANSITION
+ *********************************************/
+.reveal .slides section[data-transition=concave].stack,
+.reveal.concave .slides section.stack {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
+.reveal .slides > section[data-transition=concave].past,
+.reveal .slides > section[data-transition~=concave-out].past,
+.reveal.concave .slides > section:not([data-transition]).past {
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(90deg) translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0) rotateY(90deg) translate3d(-100%, 0, 0); }
+
+.reveal .slides > section[data-transition=concave].future,
+.reveal .slides > section[data-transition~=concave-in].future,
+.reveal.concave .slides > section:not([data-transition]).future {
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(-90deg) translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0) rotateY(-90deg) translate3d(100%, 0, 0); }
+
+.reveal .slides > section > section[data-transition=concave].past,
+.reveal .slides > section > section[data-transition~=concave-out].past,
+.reveal.concave .slides > section > section:not([data-transition]).past {
+  -webkit-transform: translate3d(0, -80%, 0) rotateX(-70deg) translate3d(0, -80%, 0);
+          transform: translate3d(0, -80%, 0) rotateX(-70deg) translate3d(0, -80%, 0); }
+
+.reveal .slides > section > section[data-transition=concave].future,
+.reveal .slides > section > section[data-transition~=concave-in].future,
+.reveal.concave .slides > section > section:not([data-transition]).future {
+  -webkit-transform: translate3d(0, 80%, 0) rotateX(70deg) translate3d(0, 80%, 0);
+          transform: translate3d(0, 80%, 0) rotateX(70deg) translate3d(0, 80%, 0); }
+
+/*********************************************
+ * ZOOM TRANSITION
+ *********************************************/
+.reveal .slides section[data-transition=zoom],
+.reveal.zoom .slides section:not([data-transition]) {
+  transition-timing-function: ease; }
+
+.reveal .slides > section[data-transition=zoom].past,
+.reveal .slides > section[data-transition~=zoom-out].past,
+.reveal.zoom .slides > section:not([data-transition]).past {
+  visibility: hidden;
+  -webkit-transform: scale(16);
+          transform: scale(16); }
+
+.reveal .slides > section[data-transition=zoom].future,
+.reveal .slides > section[data-transition~=zoom-in].future,
+.reveal.zoom .slides > section:not([data-transition]).future {
+  visibility: hidden;
+  -webkit-transform: scale(0.2);
+          transform: scale(0.2); }
+
+.reveal .slides > section > section[data-transition=zoom].past,
+.reveal .slides > section > section[data-transition~=zoom-out].past,
+.reveal.zoom .slides > section > section:not([data-transition]).past {
+  -webkit-transform: translate(0, -150%);
+          transform: translate(0, -150%); }
+
+.reveal .slides > section > section[data-transition=zoom].future,
+.reveal .slides > section > section[data-transition~=zoom-in].future,
+.reveal.zoom .slides > section > section:not([data-transition]).future {
+  -webkit-transform: translate(0, 150%);
+          transform: translate(0, 150%); }
+
+/*********************************************
+ * CUBE TRANSITION
+ *
+ * WARNING:
+ * this is deprecated and will be removed in a
+ * future version.
+ *********************************************/
+.reveal.cube .slides {
+  -webkit-perspective: 1300px;
+          perspective: 1300px; }
+
+.reveal.cube .slides section {
+  padding: 30px;
+  min-height: 700px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  box-sizing: border-box;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
+.reveal.center.cube .slides section {
+  min-height: 0; }
+
+.reveal.cube .slides section:not(.stack):before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  -webkit-transform: translateZ(-20px);
+          transform: translateZ(-20px); }
+
+.reveal.cube .slides section:not(.stack):after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 90%;
+  height: 30px;
+  left: 5%;
+  bottom: 0;
+  background: none;
+  z-index: 1;
+  border-radius: 4px;
+  box-shadow: 0px 95px 25px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translateZ(-90px) rotateX(65deg);
+          transform: translateZ(-90px) rotateX(65deg); }
+
+.reveal.cube .slides > section.stack {
+  padding: 0;
+  background: none; }
+
+.reveal.cube .slides > section.past {
+  -webkit-transform-origin: 100% 0%;
+          transform-origin: 100% 0%;
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(-90deg);
+          transform: translate3d(-100%, 0, 0) rotateY(-90deg); }
+
+.reveal.cube .slides > section.future {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(90deg);
+          transform: translate3d(100%, 0, 0) rotateY(90deg); }
+
+.reveal.cube .slides > section > section.past {
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+  -webkit-transform: translate3d(0, -100%, 0) rotateX(90deg);
+          transform: translate3d(0, -100%, 0) rotateX(90deg); }
+
+.reveal.cube .slides > section > section.future {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translate3d(0, 100%, 0) rotateX(-90deg);
+          transform: translate3d(0, 100%, 0) rotateX(-90deg); }
+
+/*********************************************
+ * PAGE TRANSITION
+ *
+ * WARNING:
+ * this is deprecated and will be removed in a
+ * future version.
+ *********************************************/
+.reveal.page .slides {
+  -webkit-perspective-origin: 0% 50%;
+          perspective-origin: 0% 50%;
+  -webkit-perspective: 3000px;
+          perspective: 3000px; }
+
+.reveal.page .slides section {
+  padding: 30px;
+  min-height: 700px;
+  box-sizing: border-box;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
+.reveal.page .slides section.past {
+  z-index: 12; }
+
+.reveal.page .slides section:not(.stack):before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.1);
+  -webkit-transform: translateZ(-20px);
+          transform: translateZ(-20px); }
+
+.reveal.page .slides section:not(.stack):after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 90%;
+  height: 30px;
+  left: 5%;
+  bottom: 0;
+  background: none;
+  z-index: 1;
+  border-radius: 4px;
+  box-shadow: 0px 95px 25px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translateZ(-90px) rotateX(65deg); }
+
+.reveal.page .slides > section.stack {
+  padding: 0;
+  background: none; }
+
+.reveal.page .slides > section.past {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translate3d(-40%, 0, 0) rotateY(-80deg);
+          transform: translate3d(-40%, 0, 0) rotateY(-80deg); }
+
+.reveal.page .slides > section.future {
+  -webkit-transform-origin: 100% 0%;
+          transform-origin: 100% 0%;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0); }
+
+.reveal.page .slides > section > section.past {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translate3d(0, -40%, 0) rotateX(80deg);
+          transform: translate3d(0, -40%, 0) rotateX(80deg); }
+
+.reveal.page .slides > section > section.future {
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0); }
+
+/*********************************************
+ * FADE TRANSITION
+ *********************************************/
+.reveal .slides section[data-transition=fade],
+.reveal.fade .slides section:not([data-transition]),
+.reveal.fade .slides > section > section:not([data-transition]) {
+  -webkit-transform: none;
+          transform: none;
+  transition: opacity 0.5s; }
+
+.reveal.fade.overview .slides section,
+.reveal.fade.overview .slides > section > section {
+  transition: none; }
+
+/*********************************************
+ * NO TRANSITION
+ *********************************************/
+.reveal .slides section[data-transition=none],
+.reveal.none .slides section:not([data-transition]) {
+  -webkit-transform: none;
+          transform: none;
+  transition: none; }
+
+/*********************************************
+ * PAUSED MODE
+ *********************************************/
+.reveal .pause-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 100;
+  transition: all 1s ease; }
+
+.reveal .pause-overlay .resume-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: #ccc;
+  border-radius: 2px;
+  padding: 6px 14px;
+  border: 2px solid #ccc;
+  font-size: 16px;
+  background: transparent;
+  cursor: pointer; }
+  .reveal .pause-overlay .resume-button:hover {
+    color: #fff;
+    border-color: #fff; }
+
+.reveal.paused .pause-overlay {
+  visibility: visible;
+  opacity: 1; }
+
+/*********************************************
+ * FALLBACK
+ *********************************************/
+.no-transforms {
+  overflow-y: auto; }
+
+.no-transforms .reveal .slides {
+  position: relative;
+  width: 80%;
+  height: auto !important;
+  top: 0;
+  left: 50%;
+  margin: 0;
+  text-align: center; }
+
+.no-transforms .reveal .controls,
+.no-transforms .reveal .progress {
+  display: none !important; }
+
+.no-transforms .reveal .slides section {
+  display: block !important;
+  opacity: 1 !important;
+  position: relative !important;
+  height: auto;
+  min-height: 0;
+  top: 0;
+  left: -50%;
+  margin: 70px 0;
+  -webkit-transform: none;
+          transform: none; }
+
+.no-transforms .reveal .slides section section {
+  left: 0; }
+
+.reveal .no-transition,
+.reveal .no-transition * {
+  transition: none !important; }
+
+/*********************************************
+ * PER-SLIDE BACKGROUNDS
+ *********************************************/
+.reveal .backgrounds {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-perspective: 600px;
+          perspective: 600px; }
+
+.reveal .slide-background {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  background-color: transparent;
+  transition: all 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+.reveal .slide-background-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.reveal .slide-background.stack {
+  display: block; }
+
+.reveal .slide-background.present {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2; }
+
+.print-pdf .reveal .slide-background {
+  opacity: 1 !important;
+  visibility: visible !important; }
+
+/* Video backgrounds */
+.reveal .slide-background video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover; }
+
+.reveal .slide-background[data-background-size="contain"] video {
+  -o-object-fit: contain;
+     object-fit: contain; }
+
+/* Immediate transition style */
+.reveal[data-background-transition=none] > .backgrounds .slide-background,
+.reveal > .backgrounds .slide-background[data-background-transition=none] {
+  transition: none; }
+
+/* Slide */
+.reveal[data-background-transition=slide] > .backgrounds .slide-background,
+.reveal > .backgrounds .slide-background[data-background-transition=slide] {
+  opacity: 1;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden; }
+
+.reveal[data-background-transition=slide] > .backgrounds .slide-background.past,
+.reveal > .backgrounds .slide-background.past[data-background-transition=slide] {
+  -webkit-transform: translate(-100%, 0);
+          transform: translate(-100%, 0); }
+
+.reveal[data-background-transition=slide] > .backgrounds .slide-background.future,
+.reveal > .backgrounds .slide-background.future[data-background-transition=slide] {
+  -webkit-transform: translate(100%, 0);
+          transform: translate(100%, 0); }
+
+.reveal[data-background-transition=slide] > .backgrounds .slide-background > .slide-background.past,
+.reveal > .backgrounds .slide-background > .slide-background.past[data-background-transition=slide] {
+  -webkit-transform: translate(0, -100%);
+          transform: translate(0, -100%); }
+
+.reveal[data-background-transition=slide] > .backgrounds .slide-background > .slide-background.future,
+.reveal > .backgrounds .slide-background > .slide-background.future[data-background-transition=slide] {
+  -webkit-transform: translate(0, 100%);
+          transform: translate(0, 100%); }
+
+/* Convex */
+.reveal[data-background-transition=convex] > .backgrounds .slide-background.past,
+.reveal > .backgrounds .slide-background.past[data-background-transition=convex] {
+  opacity: 0;
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0); }
+
+.reveal[data-background-transition=convex] > .backgrounds .slide-background.future,
+.reveal > .backgrounds .slide-background.future[data-background-transition=convex] {
+  opacity: 0;
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0); }
+
+.reveal[data-background-transition=convex] > .backgrounds .slide-background > .slide-background.past,
+.reveal > .backgrounds .slide-background > .slide-background.past[data-background-transition=convex] {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -100%, 0) rotateX(90deg) translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0) rotateX(90deg) translate3d(0, -100%, 0); }
+
+.reveal[data-background-transition=convex] > .backgrounds .slide-background > .slide-background.future,
+.reveal > .backgrounds .slide-background > .slide-background.future[data-background-transition=convex] {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100%, 0) rotateX(-90deg) translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0) rotateX(-90deg) translate3d(0, 100%, 0); }
+
+/* Concave */
+.reveal[data-background-transition=concave] > .backgrounds .slide-background.past,
+.reveal > .backgrounds .slide-background.past[data-background-transition=concave] {
+  opacity: 0;
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(90deg) translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0) rotateY(90deg) translate3d(-100%, 0, 0); }
+
+.reveal[data-background-transition=concave] > .backgrounds .slide-background.future,
+.reveal > .backgrounds .slide-background.future[data-background-transition=concave] {
+  opacity: 0;
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(-90deg) translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0) rotateY(-90deg) translate3d(100%, 0, 0); }
+
+.reveal[data-background-transition=concave] > .backgrounds .slide-background > .slide-background.past,
+.reveal > .backgrounds .slide-background > .slide-background.past[data-background-transition=concave] {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -100%, 0) rotateX(-90deg) translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0) rotateX(-90deg) translate3d(0, -100%, 0); }
+
+.reveal[data-background-transition=concave] > .backgrounds .slide-background > .slide-background.future,
+.reveal > .backgrounds .slide-background > .slide-background.future[data-background-transition=concave] {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100%, 0) rotateX(90deg) translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0) rotateX(90deg) translate3d(0, 100%, 0); }
+
+/* Zoom */
+.reveal[data-background-transition=zoom] > .backgrounds .slide-background,
+.reveal > .backgrounds .slide-background[data-background-transition=zoom] {
+  transition-timing-function: ease; }
+
+.reveal[data-background-transition=zoom] > .backgrounds .slide-background.past,
+.reveal > .backgrounds .slide-background.past[data-background-transition=zoom] {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(16);
+          transform: scale(16); }
+
+.reveal[data-background-transition=zoom] > .backgrounds .slide-background.future,
+.reveal > .backgrounds .slide-background.future[data-background-transition=zoom] {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(0.2);
+          transform: scale(0.2); }
+
+.reveal[data-background-transition=zoom] > .backgrounds .slide-background > .slide-background.past,
+.reveal > .backgrounds .slide-background > .slide-background.past[data-background-transition=zoom] {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(16);
+          transform: scale(16); }
+
+.reveal[data-background-transition=zoom] > .backgrounds .slide-background > .slide-background.future,
+.reveal > .backgrounds .slide-background > .slide-background.future[data-background-transition=zoom] {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(0.2);
+          transform: scale(0.2); }
+
+/* Global transition speed settings */
+.reveal[data-transition-speed="fast"] > .backgrounds .slide-background {
+  transition-duration: 400ms; }
+
+.reveal[data-transition-speed="slow"] > .backgrounds .slide-background {
+  transition-duration: 1200ms; }
+
+/*********************************************
+ * OVERVIEW
+ *********************************************/
+.reveal.overview {
+  -webkit-perspective-origin: 50% 50%;
+          perspective-origin: 50% 50%;
+  -webkit-perspective: 700px;
+          perspective: 700px; }
+  .reveal.overview .slides {
+    -moz-transform-style: preserve-3d; }
+  .reveal.overview .slides section {
+    height: 100%;
+    top: 0 !important;
+    opacity: 1 !important;
+    overflow: hidden;
+    visibility: visible !important;
+    cursor: pointer;
+    box-sizing: border-box; }
+  .reveal.overview .slides section:hover,
+  .reveal.overview .slides section.present {
+    outline: 10px solid rgba(150, 150, 150, 0.4);
+    outline-offset: 10px; }
+  .reveal.overview .slides section .fragment {
+    opacity: 1;
+    transition: none; }
+  .reveal.overview .slides section:after,
+  .reveal.overview .slides section:before {
+    display: none !important; }
+  .reveal.overview .slides > section.stack {
+    padding: 0;
+    top: 0 !important;
+    background: none;
+    outline: none;
+    overflow: visible; }
+  .reveal.overview .backgrounds {
+    -webkit-perspective: inherit;
+            perspective: inherit;
+    -moz-transform-style: preserve-3d; }
+  .reveal.overview .backgrounds .slide-background {
+    opacity: 1;
+    visibility: visible;
+    outline: 10px solid rgba(150, 150, 150, 0.1);
+    outline-offset: 10px; }
+  .reveal.overview .backgrounds .slide-background.stack {
+    overflow: visible; }
+
+.reveal.overview .slides section,
+.reveal.overview-deactivating .slides section {
+  transition: none; }
+
+.reveal.overview .backgrounds .slide-background,
+.reveal.overview-deactivating .backgrounds .slide-background {
+  transition: none; }
+
+/*********************************************
+ * RTL SUPPORT
+ *********************************************/
+.reveal.rtl .slides,
+.reveal.rtl .slides h1,
+.reveal.rtl .slides h2,
+.reveal.rtl .slides h3,
+.reveal.rtl .slides h4,
+.reveal.rtl .slides h5,
+.reveal.rtl .slides h6 {
+  direction: rtl;
+  font-family: sans-serif; }
+
+.reveal.rtl pre,
+.reveal.rtl code {
+  direction: ltr; }
+
+.reveal.rtl ol,
+.reveal.rtl ul {
+  text-align: right; }
+
+.reveal.rtl .progress span {
+  float: right; }
+
+/*********************************************
+ * PARALLAX BACKGROUND
+ *********************************************/
+.reveal.has-parallax-background .backgrounds {
+  transition: all 0.8s ease; }
+
+/* Global transition speed settings */
+.reveal.has-parallax-background[data-transition-speed="fast"] .backgrounds {
+  transition-duration: 400ms; }
+
+.reveal.has-parallax-background[data-transition-speed="slow"] .backgrounds {
+  transition-duration: 1200ms; }
+
+/*********************************************
+ * LINK PREVIEW OVERLAY
+ *********************************************/
+.reveal .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease; }
+
+.reveal .overlay.visible {
+  opacity: 1;
+  visibility: visible; }
+
+.reveal .overlay .spinner {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  margin: -16px 0 0 -16px;
+  z-index: 10;
+  background-image: url(data:image/gif;base64,R0lGODlhIAAgAPMAAJmZmf%2F%2F%2F6%2Bvr8nJybW1tcDAwOjo6Nvb26ioqKOjo7Ozs%2FLy8vz8%2FAAAAAAAAAAAACH%2FC05FVFNDQVBFMi4wAwEAAAAh%2FhpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh%2BQQJCgAAACwAAAAAIAAgAAAE5xDISWlhperN52JLhSSdRgwVo1ICQZRUsiwHpTJT4iowNS8vyW2icCF6k8HMMBkCEDskxTBDAZwuAkkqIfxIQyhBQBFvAQSDITM5VDW6XNE4KagNh6Bgwe60smQUB3d4Rz1ZBApnFASDd0hihh12BkE9kjAJVlycXIg7CQIFA6SlnJ87paqbSKiKoqusnbMdmDC2tXQlkUhziYtyWTxIfy6BE8WJt5YJvpJivxNaGmLHT0VnOgSYf0dZXS7APdpB309RnHOG5gDqXGLDaC457D1zZ%2FV%2FnmOM82XiHRLYKhKP1oZmADdEAAAh%2BQQJCgAAACwAAAAAIAAgAAAE6hDISWlZpOrNp1lGNRSdRpDUolIGw5RUYhhHukqFu8DsrEyqnWThGvAmhVlteBvojpTDDBUEIFwMFBRAmBkSgOrBFZogCASwBDEY%2FCZSg7GSE0gSCjQBMVG023xWBhklAnoEdhQEfyNqMIcKjhRsjEdnezB%2BA4k8gTwJhFuiW4dokXiloUepBAp5qaKpp6%2BHo7aWW54wl7obvEe0kRuoplCGepwSx2jJvqHEmGt6whJpGpfJCHmOoNHKaHx61WiSR92E4lbFoq%2BB6QDtuetcaBPnW6%2BO7wDHpIiK9SaVK5GgV543tzjgGcghAgAh%2BQQJCgAAACwAAAAAIAAgAAAE7hDISSkxpOrN5zFHNWRdhSiVoVLHspRUMoyUakyEe8PTPCATW9A14E0UvuAKMNAZKYUZCiBMuBakSQKG8G2FzUWox2AUtAQFcBKlVQoLgQReZhQlCIJesQXI5B0CBnUMOxMCenoCfTCEWBsJColTMANldx15BGs8B5wlCZ9Po6OJkwmRpnqkqnuSrayqfKmqpLajoiW5HJq7FL1Gr2mMMcKUMIiJgIemy7xZtJsTmsM4xHiKv5KMCXqfyUCJEonXPN2rAOIAmsfB3uPoAK%2B%2BG%2Bw48edZPK%2BM6hLJpQg484enXIdQFSS1u6UhksENEQAAIfkECQoAAAAsAAAAACAAIAAABOcQyEmpGKLqzWcZRVUQnZYg1aBSh2GUVEIQ2aQOE%2BG%2BcD4ntpWkZQj1JIiZIogDFFyHI0UxQwFugMSOFIPJftfVAEoZLBbcLEFhlQiqGp1Vd140AUklUN3eCA51C1EWMzMCezCBBmkxVIVHBWd3HHl9JQOIJSdSnJ0TDKChCwUJjoWMPaGqDKannasMo6WnM562R5YluZRwur0wpgqZE7NKUm%2BFNRPIhjBJxKZteWuIBMN4zRMIVIhffcgojwCF117i4nlLnY5ztRLsnOk%2BaV%2BoJY7V7m76PdkS4trKcdg0Zc0tTcKkRAAAIfkECQoAAAAsAAAAACAAIAAABO4QyEkpKqjqzScpRaVkXZWQEximw1BSCUEIlDohrft6cpKCk5xid5MNJTaAIkekKGQkWyKHkvhKsR7ARmitkAYDYRIbUQRQjWBwJRzChi9CRlBcY1UN4g0%2FVNB0AlcvcAYHRyZPdEQFYV8ccwR5HWxEJ02YmRMLnJ1xCYp0Y5idpQuhopmmC2KgojKasUQDk5BNAwwMOh2RtRq5uQuPZKGIJQIGwAwGf6I0JXMpC8C7kXWDBINFMxS4DKMAWVWAGYsAdNqW5uaRxkSKJOZKaU3tPOBZ4DuK2LATgJhkPJMgTwKCdFjyPHEnKxFCDhEAACH5BAkKAAAALAAAAAAgACAAAATzEMhJaVKp6s2nIkolIJ2WkBShpkVRWqqQrhLSEu9MZJKK9y1ZrqYK9WiClmvoUaF8gIQSNeF1Er4MNFn4SRSDARWroAIETg1iVwuHjYB1kYc1mwruwXKC9gmsJXliGxc%2BXiUCby9ydh1sOSdMkpMTBpaXBzsfhoc5l58Gm5yToAaZhaOUqjkDgCWNHAULCwOLaTmzswadEqggQwgHuQsHIoZCHQMMQgQGubVEcxOPFAcMDAYUA85eWARmfSRQCdcMe0zeP1AAygwLlJtPNAAL19DARdPzBOWSm1brJBi45soRAWQAAkrQIykShQ9wVhHCwCQCACH5BAkKAAAALAAAAAAgACAAAATrEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq%2BE71SRQeyqUToLA7VxF0JDyIQh%2FMVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiRMDjI0Fd30%2FiI2UA5GSS5UDj2l6NoqgOgN4gksEBgYFf0FDqKgHnyZ9OX8HrgYHdHpcHQULXAS2qKpENRg7eAMLC7kTBaixUYFkKAzWAAnLC7FLVxLWDBLKCwaKTULgEwbLA4hJtOkSBNqITT3xEgfLpBtzE%2FjiuL04RGEBgwWhShRgQExHBAAh%2BQQJCgAAACwAAAAAIAAgAAAE7xDISWlSqerNpyJKhWRdlSAVoVLCWk6JKlAqAavhO9UkUHsqlE6CwO1cRdCQ8iEIfzFVTzLdRAmZX3I2SfZiCqGk5dTESJeaOAlClzsJsqwiJwiqnFrb2nS9kmIcgEsjQydLiIlHehhpejaIjzh9eomSjZR%2BipslWIRLAgMDOR2DOqKogTB9pCUJBagDBXR6XB0EBkIIsaRsGGMMAxoDBgYHTKJiUYEGDAzHC9EACcUGkIgFzgwZ0QsSBcXHiQvOwgDdEwfFs0sDzt4S6BK4xYjkDOzn0unFeBzOBijIm1Dgmg5YFQwsCMjp1oJ8LyIAACH5BAkKAAAALAAAAAAgACAAAATwEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq%2BE71SRQeyqUToLA7VxF0JDyIQh%2FMVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiUd6GGl6NoiPOH16iZKNlH6KmyWFOggHhEEvAwwMA0N9GBsEC6amhnVcEwavDAazGwIDaH1ipaYLBUTCGgQDA8NdHz0FpqgTBwsLqAbWAAnIA4FWKdMLGdYGEgraigbT0OITBcg5QwPT4xLrROZL6AuQAPUS7bxLpoWidY0JtxLHKhwwMJBTHgPKdEQAACH5BAkKAAAALAAAAAAgACAAAATrEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq%2BE71SRQeyqUToLA7VxF0JDyIQh%2FMVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiUd6GAULDJCRiXo1CpGXDJOUjY%2BYip9DhToJA4RBLwMLCwVDfRgbBAaqqoZ1XBMHswsHtxtFaH1iqaoGNgAIxRpbFAgfPQSqpbgGBqUD1wBXeCYp1AYZ19JJOYgH1KwA4UBvQwXUBxPqVD9L3sbp2BNk2xvvFPJd%2BMFCN6HAAIKgNggY0KtEBAAh%2BQQJCgAAACwAAAAAIAAgAAAE6BDISWlSqerNpyJKhWRdlSAVoVLCWk6JKlAqAavhO9UkUHsqlE6CwO1cRdCQ8iEIfzFVTzLdRAmZX3I2SfYIDMaAFdTESJeaEDAIMxYFqrOUaNW4E4ObYcCXaiBVEgULe0NJaxxtYksjh2NLkZISgDgJhHthkpU4mW6blRiYmZOlh4JWkDqILwUGBnE6TYEbCgevr0N1gH4At7gHiRpFaLNrrq8HNgAJA70AWxQIH1%2BvsYMDAzZQPC9VCNkDWUhGkuE5PxJNwiUK4UfLzOlD4WvzAHaoG9nxPi5d%2BjYUqfAhhykOFwJWiAAAIfkECQoAAAAsAAAAACAAIAAABPAQyElpUqnqzaciSoVkXVUMFaFSwlpOCcMYlErAavhOMnNLNo8KsZsMZItJEIDIFSkLGQoQTNhIsFehRww2CQLKF0tYGKYSg%2BygsZIuNqJksKgbfgIGepNo2cIUB3V1B3IvNiBYNQaDSTtfhhx0CwVPI0UJe0%2Bbm4g5VgcGoqOcnjmjqDSdnhgEoamcsZuXO1aWQy8KAwOAuTYYGwi7w5h%2BKr0SJ8MFihpNbx%2B4Erq7BYBuzsdiH1jCAzoSfl0rVirNbRXlBBlLX%2BBP0XJLAPGzTkAuAOqb0WT5AH7OcdCm5B8TgRwSRKIHQtaLCwg1RAAAOwAAAAAAAAAAAA%3D%3D);
+  visibility: visible;
+  opacity: 0.6;
+  transition: all 0.3s ease; }
+
+.reveal .overlay header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  z-index: 2;
+  border-bottom: 1px solid #222; }
+
+.reveal .overlay header a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 36px;
+  padding: 0 10px;
+  float: right;
+  opacity: 0.6;
+  box-sizing: border-box; }
+
+.reveal .overlay header a:hover {
+  opacity: 1; }
+
+.reveal .overlay header a .icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-position: 50% 50%;
+  background-size: 100%;
+  background-repeat: no-repeat; }
+
+.reveal .overlay header a.close .icon {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABkklEQVRYR8WX4VHDMAxG6wnoJrABZQPYBCaBTWAD2g1gE5gg6OOsXuxIlr40d81dfrSJ9V4c2VLK7spHuTJ/5wpM07QXuXc5X0opX2tEJcadjHuV80li/FgxTIEK/5QBCICBD6xEhSMGHgQPgBgLiYVAB1dpSqKDawxTohFw4JSEA3clzgIBPCURwE2JucBR7rhPJJv5OpJwDX+SfDjgx1wACQeJG1aChP9K/IMmdZ8DtESV1WyP3Bt4MwM6sj4NMxMYiqUWHQu4KYA/SYkIjOsm3BXYWMKFDwU2khjCQ4ELJUJ4SmClRArOCmSXGuKma0fYD5CbzHxFpCSGAhfAVSSUGDUk2BWZaff2g6GE15BsBQ9nwmpIGDiyHQddwNTMKkbZaf9fajXQca1EX44puJZUsnY0ObGmITE3GVLCbEhQUjGVt146j6oasWN+49Vph2w1pZ5EansNZqKBm1txbU57iRRcZ86RWMDdWtBJUHBHwoQPi1GV+JCbntmvok7iTX4/Up9mgyTc/FJYDTcndgH/AA5A/CHsyEkVAAAAAElFTkSuQmCC); }
+
+.reveal .overlay header a.external .icon {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAcElEQVRYR+2WSQoAIQwEzf8f7XiOMkUQxUPlGkM3hVmiQfQR9GYnH1SsAQlI4DiBqkCMoNb9y2e90IAEJPAcgdznU9+engMaeJ7Azh5Y1U67gAho4DqBqmB1buAf0MB1AlVBek83ZPkmJMGc1wAR+AAqod/B97TRpQAAAABJRU5ErkJggg==); }
+
+.reveal .overlay .viewport {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 40px;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
+.reveal .overlay.overlay-preview .viewport iframe {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  border: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease; }
+
+.reveal .overlay.overlay-preview.loaded .viewport iframe {
+  opacity: 1;
+  visibility: visible; }
+
+.reveal .overlay.overlay-preview.loaded .viewport-inner {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 45%;
+  width: 100%;
+  text-align: center;
+  letter-spacing: normal; }
+
+.reveal .overlay.overlay-preview .x-frame-error {
+  opacity: 0;
+  transition: opacity 0.3s ease 0.3s; }
+
+.reveal .overlay.overlay-preview.loaded .x-frame-error {
+  opacity: 1; }
+
+.reveal .overlay.overlay-preview.loaded .spinner {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(0.2);
+          transform: scale(0.2); }
+
+.reveal .overlay.overlay-help .viewport {
+  overflow: auto;
+  color: #fff; }
+
+.reveal .overlay.overlay-help .viewport .viewport-inner {
+  width: 600px;
+  margin: auto;
+  padding: 20px 20px 80px 20px;
+  text-align: center;
+  letter-spacing: normal; }
+
+.reveal .overlay.overlay-help .viewport .viewport-inner .title {
+  font-size: 20px; }
+
+.reveal .overlay.overlay-help .viewport .viewport-inner table {
+  border: 1px solid #fff;
+  border-collapse: collapse;
+  font-size: 16px; }
+
+.reveal .overlay.overlay-help .viewport .viewport-inner table th,
+.reveal .overlay.overlay-help .viewport .viewport-inner table td {
+  width: 200px;
+  padding: 14px;
+  border: 1px solid #fff;
+  vertical-align: middle; }
+
+.reveal .overlay.overlay-help .viewport .viewport-inner table th {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
+/*********************************************
+ * PLAYBACK COMPONENT
+ *********************************************/
+.reveal .playback {
+  position: absolute;
+  left: 15px;
+  bottom: 20px;
+  z-index: 30;
+  cursor: pointer;
+  transition: all 400ms ease;
+  -webkit-tap-highlight-color: transparent; }
+
+.reveal.overview .playback {
+  opacity: 0;
+  visibility: hidden; }
+
+/*********************************************
+ * ROLLING LINKS
+ *********************************************/
+.reveal .roll {
+  display: inline-block;
+  line-height: 1.2;
+  overflow: hidden;
+  vertical-align: top;
+  -webkit-perspective: 400px;
+          perspective: 400px;
+  -webkit-perspective-origin: 50% 50%;
+          perspective-origin: 50% 50%; }
+
+.reveal .roll:hover {
+  background: none;
+  text-shadow: none; }
+
+.reveal .roll span {
+  display: block;
+  position: relative;
+  padding: 0 2px;
+  pointer-events: none;
+  transition: all 400ms ease;
+  -webkit-transform-origin: 50% 0%;
+          transform-origin: 50% 0%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden; }
+
+.reveal .roll:hover span {
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-transform: translate3d(0px, 0px, -45px) rotateX(90deg);
+          transform: translate3d(0px, 0px, -45px) rotateX(90deg); }
+
+.reveal .roll span:after {
+  content: attr(data-title);
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0 2px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform-origin: 50% 0%;
+          transform-origin: 50% 0%;
+  -webkit-transform: translate3d(0px, 110%, 0px) rotateX(-90deg);
+          transform: translate3d(0px, 110%, 0px) rotateX(-90deg); }
+
+/*********************************************
+ * SPEAKER NOTES
+ *********************************************/
+.reveal aside.notes {
+  display: none; }
+
+.reveal .speaker-notes {
+  display: none;
+  position: absolute;
+  width: 25vw;
+  height: 100%;
+  top: 0;
+  left: 100%;
+  padding: 14px 18px 14px 18px;
+  z-index: 1;
+  font-size: 18px;
+  line-height: 1.4;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #222;
+  background-color: #f5f5f5;
+  overflow: auto;
+  box-sizing: border-box;
+  text-align: left;
+  font-family: Helvetica, sans-serif;
+  -webkit-overflow-scrolling: touch; }
+  .reveal .speaker-notes .notes-placeholder {
+    color: #ccc;
+    font-style: italic; }
+  .reveal .speaker-notes:focus {
+    outline: none; }
+  .reveal .speaker-notes:before {
+    content: 'Speaker notes';
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0.5; }
+
+.reveal.show-notes {
+  max-width: 75vw;
+  overflow: visible; }
+
+.reveal.show-notes .speaker-notes {
+  display: block; }
+
+@media screen and (min-width: 1600px) {
+  .reveal .speaker-notes {
+    font-size: 20px; } }
+
+@media screen and (max-width: 1024px) {
+  .reveal.show-notes {
+    border-left: 0;
+    max-width: none;
+    max-height: 70%;
+    overflow: visible; }
+  .reveal.show-notes .speaker-notes {
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 42.8571428571%; } }
+
+@media screen and (max-width: 600px) {
+  .reveal.show-notes {
+    max-height: 60%; }
+  .reveal.show-notes .speaker-notes {
+    top: 100%;
+    height: 66.6666666667%; }
+  .reveal .speaker-notes {
+    font-size: 14px; } }
+
+/*********************************************
+ * ZOOM PLUGIN
+ *********************************************/
+.zoomed .reveal *,
+.zoomed .reveal *:before,
+.zoomed .reveal *:after {
+  -webkit-backface-visibility: visible !important;
+          backface-visibility: visible !important; }
+
+.zoomed .reveal .progress,
+.zoomed .reveal .controls {
+  opacity: 0; }
+
+.zoomed .reveal .roll span {
+  background: none; }
+
+.zoomed .reveal .roll span:after {
+  visibility: hidden; }
+
+      
+      </style>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/css/theme/night.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css">
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/lib/js/head.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/js/reveal.js"></script>
+      
+      
+      
+      
+      
+      
+
+      <style>
+      pre{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;padding:1em;margin:.5em 0;overflow:auto;line-height:1.5;tab-size:4;hyphens:none;color:#c5c8c6;background-color:#27292c !important;border:#43484c;border-radius:3px}pre[class*="language-"]{padding:1em}code[class*="language-"] .token.comment,pre[class*="language-"] .token.comment,code[class*="language-"] .token.prolog,pre[class*="language-"] .token.prolog,code[class*="language-"] .token.doctype,pre[class*="language-"] .token.doctype,code[class*="language-"] .token.cdata,pre[class*="language-"] .token.cdata{color:#7C7C7C}code[class*="language-"] .token.punctuation,pre[class*="language-"] .token.punctuation{color:#96CBFE}code[class*="language-"] .namespace,pre[class*="language-"] .namespace{opacity:.7}code[class*="language-"] .token.constant,pre[class*="language-"] .token.constant{color:#99CC99}code[class*="language-"] .token.boolean,pre[class*="language-"] .token.boolean,code[class*="language-"] .token.number,pre[class*="language-"] .token.number,code[class*="language-"] .token.function-name,pre[class*="language-"] .token.function-name{color:#FF73FD}code[class*="language-"] .token.tag,pre[class*="language-"] .token.tag{color:#96CBFE}code[class*="language-"] .token.selector,pre[class*="language-"] .token.selector{color:#96CBFE}code[class*="language-"] .token.attr-name,pre[class*="language-"] .token.attr-name{color:#C6C5FE}code[class*="language-"] .token.string,pre[class*="language-"] .token.string{color:#A8FF60}code[class*="language-"] .token.char,pre[class*="language-"] .token.char{color:#FF8000}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{color:#FFD2A7}code[class*="language-"] .token.url,pre[class*="language-"] .token.url{color:#7C7C7C}code[class*="language-"] .token.operator,pre[class*="language-"] .token.operator{color:#EDEDED}code[class*="language-"] .token.atrule,pre[class*="language-"] .token.atrule,code[class*="language-"] .token.attr-value,pre[class*="language-"] .token.attr-value,code[class*="language-"] .token.keyword,pre[class*="language-"] .token.keyword{color:#CFCB90}code[class*="language-"] .token.function,pre[class*="language-"] .token.function{color:#FFD2A7}code[class*="language-"] .token.class-name,pre[class*="language-"] .token.class-name{color:#FFD2A7}code[class*="language-"] .token.variable,pre[class*="language-"] .token.variable{color:#C6C5FE}code[class*="language-"] .token.regex,pre[class*="language-"] .token.regex,code[class*="language-"] .token.important,pre[class*="language-"] .token.important{color:#E9C062}code[class*="language-"] .token.important,pre[class*="language-"] .token.important,code[class*="language-"] .token.bold,pre[class*="language-"] .token.bold{font-weight:bold}code[class*="language-"] .token.italic,pre[class*="language-"] .token.italic{font-style:italic}code[class*="language-"] .token.entity,pre[class*="language-"] .token.entity{cursor:help}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export" data-presentation-mode>
+      <div class="mume markdown-preview  " data-presentation-mode>
+      
+    <div style="display:none;"></div>
+    <div class="reveal">
+      <div class="slides">
+        <section lineno="11" class="slide " data-line="11" data-h="0" data-v="0">
+<h2 class="mume-header" id="programmable-fx-pipeline">Programmable FX Pipeline</h2>
+
+</section><section style="text-align: left" lineno="18" class="slide " data-line="18" data-h="1" data-v="0">
+<h3 class="mume-header" id="flashback-1">Flashback #1</h3>
+
+<p>Bla Bla from my previous presentation.</p>
+</section><section lineno="23" class="slide " data-line="23" data-h="2" data-v="0">
+<h3 class="mume-header" id="part-i-programmer-approach">PART I: Programmer approach</h3>
+
+<h3 class="mume-header" id="no-blueprints-just-code">(No blueprints, just code)</h3>
+
+</section><section style="text-align: left" lineno="28" class="slide " data-line="28" data-h="3" data-v="0">
+<h4 class="mume-header" id="demo-1">demo #1</h4>
+
+<h2 class="mume-header" id="a-hrefdemo-1mp4-target_blanklive-coding-demoa"><a href="./demo-1.mp4" target="_blank">live coding demo</a></h2>
+
+</section><section style="text-align: left" lineno="35" class="slide " data-line="35" data-h="4" data-v="0">
+<h4 class="mume-header" id="demo-2">demo #2</h4>
+
+<h2 class="mume-header" id="a-hrefdemo-2mp4-target_blankeffect-examplesa"><a href="./demo-2.mp4" target="_blank">effect examples</a></h2>
+
+</section><section lineno="40" class="slide " data-line="40" data-h="5" data-v="0">
+<h2 class="mume-header" id="how-it-works">How it works?</h2>
+
+</section><section style="text-align: left" lineno="44" class="slide " data-line="44" data-h="6" data-v="0">
+<hr>
+<h3 class="mume-header" id="framework-open-hlsl">Framework &quot;Open HLSL&quot;</h3>
+
+<ul>
+<li>Parser (output AST)</li>
+<li>Compiler (output bytecode)</li>
+<li>Virtual Machine</li>
+<li>Translator (HLSL to GLSL)</li>
+<li>FX Translator (Extented HLSL to raw HLSL)</li>
+<li>Language service (LSP, VS code editor)</li>
+</ul>
+<hr>
+<h3 class="mume-header" id="sandbox">Sandbox</h3>
+
+<ul>
+<li>Simple runtime</li>
+<li>Simple renderer</li>
+</ul>
+<hr>
+</section><section lineno="60" class="slide " data-line="60" data-h="7" data-v="0">
+<h2 class="mume-header" id="fastnbspforward">&quot;Fast&#xA0;forward&quot;</h2>
+
+</section><section style="text-align: left" lineno="64" class="slide " data-line="64" data-h="8" data-v="0">
+<h3 class="mume-header" id="parser">Parser</h3>
+
+<p><img src="parser.gif?0.02120561099081053" alt></p>
+</section><section style="text-align: left" lineno="70" class="slide " data-line="70" data-h="9" data-v="0">
+<h4 class="mume-header" id="compiler">Compiler</h4>
+
+<p><img src="bytecode.gif?0.05620038370472047" alt></p>
+</section><section style="text-align: left" lineno="76" class="slide " data-line="76" data-h="10" data-v="0">
+<h3 class="mume-header" id="expressions">Expressions</h3>
+
+<p><img src="expressions.gif?0.9105063537579854" alt></p>
+</section><section style="text-align: left" lineno="82" class="slide " data-line="82" data-h="11" data-v="0">
+<h3 class="mume-header" id="virtual-machine">Virtual Machine</h3>
+
+<ul>
+<li>As simple as possible, <strong>just 200+ lines of code!</strong></li>
+<li>Register based, scalar architecture (like GCN)</li>
+<li>No stack</li>
+</ul>
+<hr>
+<h4>Bonus</h4>
+<ul>
+<li>Small bindings for CS shaders execution (<strong>just copy and run!</strong>)</li>
+</ul>
+</section><section style="text-align: left" lineno="93" class="slide " data-line="93" data-h="12" data-v="0">
+<h3 class="mume-header" id="code-emitters-translators">Code emitters &amp; translators</h3>
+
+<p><img src="translator.png?0.6646626355704024" alt></p>
+</section><section style="text-align: left" lineno="99" class="slide " data-line="99" data-h="13" data-v="0">
+<h3 class="mume-header" id="language-service">Language service</h3>
+
+<p><img src="ls.png?0.15058593719237567" alt></p>
+</section><section id="centred" lineno="105" class="slide " data-line="105" data-h="14" data-v="0">
+<h3 class="mume-header" id="programmable-pipeline">Programmable pipeline</h3>
+
+<h4 class="mume-header" id="cpu-based-particle-system">[CPU based particle system]</h4>
+
+<p engine="dot"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: %0 Pages: 1 -->
+<svg width="439pt" height="554pt" viewBox="0.00 0.00 438.86 553.59" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 549.5879)">
+<title>%0</title>
+<polygon fill="transparent" stroke="transparent" points="-4,4 -4,-549.5879 434.8562,-549.5879 434.8562,4 -4,4"/>
+<!-- text_document -->
+<g id="node1" class="node">
+<title>text_document</title>
+<ellipse fill="#c20a50" stroke="#ffffff" stroke-width="2" cx="272.3612" cy="-505.9899" rx="101.4905" ry="39.6962"/>
+<text text-anchor="middle" x="272.3612" y="-511.9899" font-family="Times,serif" font-size="20.00" fill="#ffffff">source fxsl</text>
+<text text-anchor="middle" x="272.3612" y="-487.9899" font-family="Times,serif" font-size="20.00" fill="#ffffff">(text document)</text>
+</g>
+<!-- fx_translator -->
+<g id="node2" class="node">
+<title>fx_translator</title>
+<polygon fill="#000000" stroke="#ffffff" stroke-width="2" points="333.4412,-430.3919 211.2811,-430.3919 211.2811,-394.3919 333.4412,-394.3919 333.4412,-430.3919"/>
+<text text-anchor="middle" x="272.3612" y="-406.3919" font-family="Times,serif" font-size="20.00" fill="#ffffff">FX translator</text>
+</g>
+<!-- text_document&#45;&gt;fx_translator -->
+<g id="edge1" class="edge">
+<title>text_document-&gt;fx_translator</title>
+<path fill="none" stroke="#ffffff" d="M272.3612,-466.2959C272.3612,-457.8009 272.3612,-448.986 272.3612,-441.0064"/>
+<polygon fill="#ffffff" stroke="#ffffff" points="275.8613,-440.7512 272.3612,-430.7513 268.8613,-440.7513 275.8613,-440.7512"/>
+</g>
+<!-- shaders -->
+<g id="node3" class="node">
+<title>shaders</title>
+<ellipse fill="#c20a50" stroke="#ffffff" stroke-width="2" cx="180.3612" cy="-318.7939" rx="101.4905" ry="39.6962"/>
+<text text-anchor="middle" x="180.3612" y="-324.7939" font-family="Times,serif" font-size="20.00" fill="#ffffff">raw hlsl</text>
+<text text-anchor="middle" x="180.3612" y="-300.7939" font-family="Times,serif" font-size="20.00" fill="#ffffff">(text document)</text>
+</g>
+<!-- fx_translator&#45;&gt;shaders -->
+<g id="edge2" class="edge">
+<title>fx_translator-&gt;shaders</title>
+<path fill="none" stroke="#ffffff" d="M254.6226,-394.3453C245.7991,-385.3685 234.7105,-374.0873 223.8132,-363.0007"/>
+<polygon fill="#ffffff" stroke="#ffffff" points="226.2115,-360.4478 216.7055,-355.7695 221.2193,-365.3547 226.2115,-360.4478"/>
+</g>
+<!-- reflection -->
+<g id="node4" class="node">
+<title>reflection</title>
+<ellipse fill="#c20a50" stroke="#ffffff" stroke-width="2" cx="365.3612" cy="-318.7939" rx="65.4901" ry="22.7556"/>
+<text text-anchor="middle" x="365.3612" y="-312.7939" font-family="Times,serif" font-size="20.00" fill="#ffffff">reflection</text>
+</g>
+<!-- fx_translator&#45;&gt;reflection -->
+<g id="edge3" class="edge">
+<title>fx_translator-&gt;reflection</title>
+<path fill="none" stroke="#ffffff" d="M290.2925,-394.3453C303.4469,-381.1063 321.5815,-362.8551 336.7312,-347.608"/>
+<polygon fill="#ffffff" stroke="#ffffff" points="339.3281,-349.9601 343.8937,-340.3994 334.3625,-345.0262 339.3281,-349.9601"/>
+</g>
+<!-- compiler -->
+<g id="node5" class="node">
+<title>compiler</title>
+<polygon fill="#000000" stroke="#ffffff" stroke-width="2" points="126.9492,-243.196 39.7731,-243.196 39.7731,-207.196 126.9492,-207.196 126.9492,-243.196"/>
+<text text-anchor="middle" x="83.3612" y="-219.196" font-family="Times,serif" font-size="20.00" fill="#ffffff">compiler</text>
+</g>
+<!-- shaders&#45;&gt;compiler -->
+<g id="edge4" class="edge">
+<title>shaders-&gt;compiler</title>
+<path fill="none" stroke="#ffffff" d="M142.3026,-282.0702C131.3058,-271.4591 119.5572,-260.1226 109.4661,-250.3853"/>
+<polygon fill="#ffffff" stroke="#ffffff" points="111.7387,-247.7145 102.1122,-243.2894 106.8781,-252.7518 111.7387,-247.7145"/>
+</g>
+<!-- translator -->
+<g id="node7" class="node">
+<title>translator</title>
+<polygon fill="#000000" stroke="#ffffff" stroke-width="2" points="255.8864,-243.196 164.8359,-243.196 164.8359,-207.196 255.8864,-207.196 255.8864,-243.196"/>
+<text text-anchor="middle" x="210.3612" y="-219.196" font-family="Times,serif" font-size="20.00" fill="#ffffff">translator</text>
+</g>
+<!-- shaders&#45;&gt;translator -->
+<g id="edge6" class="edge">
+<title>shaders-&gt;translator</title>
+<path fill="none" stroke="#ffffff" d="M192.9969,-279.3712C195.7892,-270.6594 198.6937,-261.5978 201.31,-253.4351"/>
+<polygon fill="#ffffff" stroke="#ffffff" points="204.7204,-254.2616 204.4397,-243.6704 198.0544,-252.1249 204.7204,-254.2616"/>
+</g>
+<!-- pipeline -->
+<g id="node9" class="node">
+<title>pipeline</title>
+<polygon fill="#000000" stroke="#ffffff" stroke-width="2" points="315.1933,-56 165.5291,-56 165.5291,0 315.1933,0 315.1933,-56"/>
+<text text-anchor="middle" x="240.3612" y="-34" font-family="Times,serif" font-size="20.00" fill="#ffffff">pipeline</text>
+<text text-anchor="middle" x="240.3612" y="-10" font-family="Times,serif" font-size="20.00" fill="#ffffff">(particle system)</text>
+</g>
+<!-- reflection&#45;&gt;pipeline -->
+<g id="edge9" class="edge">
+<title>reflection-&gt;pipeline</title>
+<path fill="none" stroke="#ffffff" d="M369.7833,-296.1199C376.9571,-252.7916 386.5833,-156.7878 346.3612,-92 338.9707,-80.0959 328.4722,-70.1047 316.9272,-61.8241"/>
+<polygon fill="#ffffff" stroke="#ffffff" points="318.6225,-58.7472 308.3653,-56.0939 314.7292,-64.5646 318.6225,-58.7472"/>
+</g>
+<!-- bytecode -->
+<g id="node6" class="node">
+<title>bytecode</title>
+<ellipse fill="#c20a50" stroke="#ffffff" stroke-width="2" cx="62.3612" cy="-131.598" rx="62.2226" ry="22.7556"/>
+<text text-anchor="middle" x="62.3612" y="-125.598" font-family="Times,serif" font-size="20.00" fill="#ffffff">bytecode</text>
+</g>
+<!-- compiler&#45;&gt;bytecode -->
+<g id="edge5" class="edge">
+<title>compiler-&gt;bytecode</title>
+<path fill="none" stroke="#ffffff" d="M79.3122,-207.1493C76.5884,-195.0093 72.919,-178.6547 69.6908,-164.2665"/>
+<polygon fill="#ffffff" stroke="#ffffff" points="73.0424,-163.2168 67.438,-154.2256 66.2122,-164.7493 73.0424,-163.2168"/>
+</g>
+<!-- bytecode&#45;&gt;pipeline -->
+<g id="edge8" class="edge">
+<title>bytecode-&gt;pipeline</title>
+<path fill="none" stroke="#ffffff" d="M95.4244,-112.3548C120.0252,-98.0369 154.2149,-78.1381 183.2097,-61.2628"/>
+<polygon fill="#ffffff" stroke="#ffffff" points="185.1427,-64.1874 192.0249,-56.1322 181.6216,-58.1375 185.1427,-64.1874"/>
+</g>
+<!-- native_shader -->
+<g id="node8" class="node">
+<title>native_shader</title>
+<ellipse fill="#c20a50" stroke="#ffffff" stroke-width="2" cx="240.3612" cy="-131.598" rx="97.1498" ry="39.6962"/>
+<text text-anchor="middle" x="240.3612" y="-137.598" font-family="Times,serif" font-size="20.00" fill="#ffffff">native shader</text>
+<text text-anchor="middle" x="240.3612" y="-113.598" font-family="Times,serif" font-size="20.00" fill="#ffffff">(glsl, pssl, etc.)</text>
+</g>
+<!-- translator&#45;&gt;native_shader -->
+<g id="edge7" class="edge">
+<title>translator-&gt;native_shader</title>
+<path fill="none" stroke="#ffffff" d="M216.1455,-207.1493C218.6228,-199.4201 221.6478,-189.9824 224.709,-180.4316"/>
+<polygon fill="#ffffff" stroke="#ffffff" points="228.0441,-181.4932 227.7634,-170.9021 221.3781,-179.3566 228.0441,-181.4932"/>
+</g>
+<!-- native_shader&#45;&gt;pipeline -->
+<g id="edge10" class="edge">
+<title>native_shader-&gt;pipeline</title>
+<path fill="none" stroke="#ffffff" d="M240.3612,-91.8406C240.3612,-83.4954 240.3612,-74.7088 240.3612,-66.4139"/>
+<polygon fill="#ffffff" stroke="#ffffff" points="243.8613,-66.2401 240.3612,-56.2402 236.8613,-66.2402 243.8613,-66.2401"/>
+</g>
+</g>
+</svg>
+</p></section><section id="centred" lineno="160" class="slide " data-line="160" data-h="15" data-v="0">
+<h3 class="mume-header" id="programmable-pipeline-1">Programmable pipeline</h3>
+
+<h4 class="mume-header" id="gpu-based-particle-system">[GPU based particle system]</h4>
+
+<p engine="dot"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: %0 Pages: 1 -->
+<svg width="439pt" height="554pt" viewBox="0.00 0.00 438.86 553.59" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 549.5879)">
+<title>%0</title>
+<polygon fill="transparent" stroke="transparent" points="-4,4 -4,-549.5879 434.8562,-549.5879 434.8562,4 -4,4"/>
+<!-- text_document -->
+<g id="node1" class="node">
+<title>text_document</title>
+<ellipse fill="#c20a50" stroke="#ffffff" stroke-width="2" cx="272.3612" cy="-505.9899" rx="101.4905" ry="39.6962"/>
+<text text-anchor="middle" x="272.3612" y="-511.9899" font-family="Times,serif" font-size="20.00" fill="#ffffff">source fxsl</text>
+<text text-anchor="middle" x="272.3612" y="-487.9899" font-family="Times,serif" font-size="20.00" fill="#ffffff">(text document)</text>
+</g>
+<!-- fx_translator -->
+<g id="node2" class="node">
+<title>fx_translator</title>
+<polygon fill="#000000" stroke="#ffffff" stroke-width="2" points="333.4412,-430.3919 211.2811,-430.3919 211.2811,-394.3919 333.4412,-394.3919 333.4412,-430.3919"/>
+<text text-anchor="middle" x="272.3612" y="-406.3919" font-family="Times,serif" font-size="20.00" fill="#ffffff">FX translator</text>
+</g>
+<!-- text_document&#45;&gt;fx_translator -->
+<g id="edge1" class="edge">
+<title>text_document-&gt;fx_translator</title>
+<path fill="none" stroke="#ffffff" d="M272.3612,-466.2959C272.3612,-457.8009 272.3612,-448.986 272.3612,-441.0064"/>
+<polygon fill="#ffffff" stroke="#ffffff" points="275.8613,-440.7512 272.3612,-430.7513 268.8613,-440.7513 275.8613,-440.7512"/>
+</g>
+<!-- shaders -->
+<g id="node3" class="node">
+<title>shaders</title>
+<ellipse fill="#c20a50" stroke="#ffffff" stroke-width="2" cx="180.3612" cy="-318.7939" rx="101.4905" ry="39.6962"/>
+<text text-anchor="middle" x="180.3612" y="-324.7939" font-family="Times,serif" font-size="20.00" fill="#ffffff">raw hlsl</text>
+<text text-anchor="middle" x="180.3612" y="-300.7939" font-family="Times,serif" font-size="20.00" fill="#ffffff">(text document)</text>
+</g>
+<!-- fx_translator&#45;&gt;shaders -->
+<g id="edge2" class="edge">
+<title>fx_translator-&gt;shaders</title>
+<path fill="none" stroke="#ffffff" d="M254.6226,-394.3453C245.7991,-385.3685 234.7105,-374.0873 223.8132,-363.0007"/>
+<polygon fill="#ffffff" stroke="#ffffff" points="226.2115,-360.4478 216.7055,-355.7695 221.2193,-365.3547 226.2115,-360.4478"/>
+</g>
+<!-- reflection -->
+<g id="node4" class="node">
+<title>reflection</title>
+<ellipse fill="#c20a50" stroke="#ffffff" stroke-width="2" cx="365.3612" cy="-318.7939" rx="65.4901" ry="22.7556"/>
+<text text-anchor="middle" x="365.3612" y="-312.7939" font-family="Times,serif" font-size="20.00" fill="#ffffff">reflection</text>
+</g>
+<!-- fx_translator&#45;&gt;reflection -->
+<g id="edge3" class="edge">
+<title>fx_translator-&gt;reflection</title>
+<path fill="none" stroke="#ffffff" d="M290.2925,-394.3453C303.4469,-381.1063 321.5815,-362.8551 336.7312,-347.608"/>
+<polygon fill="#ffffff" stroke="#ffffff" points="339.3281,-349.9601 343.8937,-340.3994 334.3625,-345.0262 339.3281,-349.9601"/>
+</g>
+<!-- compiler -->
+<g id="node5" class="node">
+<title>compiler</title>
+<polygon fill="#000000" stroke="#444444" stroke-width="2" points="126.9492,-243.196 39.7731,-243.196 39.7731,-207.196 126.9492,-207.196 126.9492,-243.196"/>
+<text text-anchor="start" x="47.8172" y="-220.196" font-family="Times,serif" text-decoration="line-through" font-size="20.00" fill="#444444">compiler</text>
+</g>
+<!-- shaders&#45;&gt;compiler -->
+<g id="edge4" class="edge">
+<title>shaders-&gt;compiler</title>
+<path fill="none" stroke="#444444" d="M142.3026,-282.0702C131.3058,-271.4591 119.5572,-260.1226 109.4661,-250.3853"/>
+<polygon fill="#444444" stroke="#444444" points="111.7387,-247.7145 102.1122,-243.2894 106.8781,-252.7518 111.7387,-247.7145"/>
+</g>
+<!-- translator -->
+<g id="node7" class="node">
+<title>translator</title>
+<polygon fill="#000000" stroke="#ffffff" stroke-width="2" points="255.8864,-243.196 164.8359,-243.196 164.8359,-207.196 255.8864,-207.196 255.8864,-243.196"/>
+<text text-anchor="middle" x="210.3612" y="-219.196" font-family="Times,serif" font-size="20.00" fill="#ffffff">translator</text>
+</g>
+<!-- shaders&#45;&gt;translator -->
+<g id="edge6" class="edge">
+<title>shaders-&gt;translator</title>
+<path fill="none" stroke="#ffffff" d="M192.9969,-279.3712C195.7892,-270.6594 198.6937,-261.5978 201.31,-253.4351"/>
+<polygon fill="#ffffff" stroke="#ffffff" points="204.7204,-254.2616 204.4397,-243.6704 198.0544,-252.1249 204.7204,-254.2616"/>
+</g>
+<!-- pipeline -->
+<g id="node9" class="node">
+<title>pipeline</title>
+<polygon fill="#000000" stroke="#ffffff" stroke-width="2" points="315.1933,-56 165.5291,-56 165.5291,0 315.1933,0 315.1933,-56"/>
+<text text-anchor="middle" x="240.3612" y="-34" font-family="Times,serif" font-size="20.00" fill="#ffffff">pipeline</text>
+<text text-anchor="middle" x="240.3612" y="-10" font-family="Times,serif" font-size="20.00" fill="#ffffff">(particle system)</text>
+</g>
+<!-- reflection&#45;&gt;pipeline -->
+<g id="edge9" class="edge">
+<title>reflection-&gt;pipeline</title>
+<path fill="none" stroke="#ffffff" d="M369.7833,-296.1199C376.9571,-252.7916 386.5833,-156.7878 346.3612,-92 338.9707,-80.0959 328.4722,-70.1047 316.9272,-61.8241"/>
+<polygon fill="#ffffff" stroke="#ffffff" points="318.6225,-58.7472 308.3653,-56.0939 314.7292,-64.5646 318.6225,-58.7472"/>
+</g>
+<!-- bytecode -->
+<g id="node6" class="node">
+<title>bytecode</title>
+<ellipse fill="transparent" stroke="#444444" stroke-width="2" cx="62.3612" cy="-131.598" rx="62.2226" ry="22.7556"/>
+<text text-anchor="start" x="26.2652" y="-126.598" font-family="Times,serif" text-decoration="line-through" font-size="20.00" fill="#444444">bytecode</text>
+</g>
+<!-- compiler&#45;&gt;bytecode -->
+<g id="edge5" class="edge">
+<title>compiler-&gt;bytecode</title>
+<path fill="none" stroke="#444444" d="M79.3122,-207.1493C76.5884,-195.0093 72.919,-178.6547 69.6908,-164.2665"/>
+<polygon fill="#444444" stroke="#444444" points="73.0424,-163.2168 67.438,-154.2256 66.2122,-164.7493 73.0424,-163.2168"/>
+</g>
+<!-- bytecode&#45;&gt;pipeline -->
+<g id="edge8" class="edge">
+<title>bytecode-&gt;pipeline</title>
+<path fill="none" stroke="#444444" d="M95.4244,-112.3548C120.0252,-98.0369 154.2149,-78.1381 183.2097,-61.2628"/>
+<polygon fill="#444444" stroke="#444444" points="185.1427,-64.1874 192.0249,-56.1322 181.6216,-58.1375 185.1427,-64.1874"/>
+</g>
+<!-- native_shader -->
+<g id="node8" class="node">
+<title>native_shader</title>
+<ellipse fill="#c20a50" stroke="#ffffff" stroke-width="2" cx="240.3612" cy="-131.598" rx="97.1498" ry="39.6962"/>
+<text text-anchor="middle" x="240.3612" y="-137.598" font-family="Times,serif" font-size="20.00" fill="#ffffff">native shader</text>
+<text text-anchor="middle" x="240.3612" y="-113.598" font-family="Times,serif" font-size="20.00" fill="#ffffff">(glsl, pssl, etc.)</text>
+</g>
+<!-- translator&#45;&gt;native_shader -->
+<g id="edge7" class="edge">
+<title>translator-&gt;native_shader</title>
+<path fill="none" stroke="#ffffff" d="M216.1455,-207.1493C218.6228,-199.4201 221.6478,-189.9824 224.709,-180.4316"/>
+<polygon fill="#ffffff" stroke="#ffffff" points="228.0441,-181.4932 227.7634,-170.9021 221.3781,-179.3566 228.0441,-181.4932"/>
+</g>
+<!-- native_shader&#45;&gt;pipeline -->
+<g id="edge10" class="edge">
+<title>native_shader-&gt;pipeline</title>
+<path fill="none" stroke="#ffffff" d="M240.3612,-91.8406C240.3612,-83.4954 240.3612,-74.7088 240.3612,-66.4139"/>
+<polygon fill="#ffffff" stroke="#ffffff" points="243.8613,-66.2401 240.3612,-56.2402 236.8613,-66.2402 243.8613,-66.2401"/>
+</g>
+</g>
+</svg>
+</p></section><section style="text-align: left" lineno="217" class="slide " data-line="217" data-h="16" data-v="0">
+<h3 class="mume-header" id="runtime">Runtime</h3>
+
+<ul>
+<li>FXSL (Extended HLSL) translates to raw HLSL + reflection
+<ul>
+<li>Raw HLSL is just a CS shaders + VS/PS (<strong>exactly like in Husky now</strong>)</li>
+<li>Each CS shader is just a bytecode program with according setup (UAVs like particles, states, prerendered particles etc.)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 class="mume-header" id="this-is-exactly-cpu-based-compute-shaders-11">This is exactly CPU based compute shaders 1:1</h4>
+
+</section><section lineno="226" class="slide " data-line="226" data-h="17" data-v="0">
+<h2 class="mume-header" id="__no-difference__-where-to-simulate-on-the-cpu-or-gpu"><strong>No difference</strong> <em><strong>where to simulate on the CPU or GPU</strong></em></h2>
+
+</section><section style="text-align: left" lineno="230" class="slide " data-line="230" data-h="18" data-v="0">
+<h3 class="mume-header" id="fxsl-spawn-operator">FXSL: Spawn operator</h3>
+
+<p><img src="spawnop.png?0.45865630812774305" alt></p>
+</section><section style="text-align: left" lineno="236" class="slide " data-line="236" data-h="19" data-v="0">
+<h4 class="mume-header" id="fxsl-spawn-operator-1">FXSL: Spawn operator</h4>
+
+<img src="tailfx.gif?0.9637342269158153" height="800">
+</section><section style="text-align: left" lineno="242" class="slide " data-line="242" data-h="20" data-v="0">
+<h3 class="mume-header" id="fxsl-spawn-operator-2">FXSL: Spawn operator</h3>
+
+<ul>
+<li>The op is almost free (no instructions)</li>
+<li>Exactly the same idea as in the [Alienation, 2016] presentation</li>
+<li>Yes, we can finally completly move all kind of trails to GPU! and much much more!</li>
+</ul>
+</section><section style="text-align: left" lineno="250" class="slide " data-line="250" data-h="21" data-v="0">
+<h3 class="mume-header" id="raw-hlsl-spawn-operator">Raw HLSL: Spawn operator</h3>
+
+<p><img src="spawnop-raw.png?0.8342699214404217" alt></p>
+</section><section style="text-align: left" lineno="255" class="slide " data-line="255" data-h="22" data-v="0">
+<h4 class="mume-header" id="demo-single-emitter-with-self-spawning">DEMO: single emitter with self spawning</h4>
+
+<img src="treefx.gif?0.44428602727081223" height="800">
+</section><section style="text-align: left" lineno="259" class="slide " data-line="259" data-h="23" data-v="0">
+<h4 class="mume-header" id="demo-custom-shaders-multipass">DEMO: custom shaders + multipass</h4>
+
+<img src="tablefx.gif?0.7644250875437335" height="800">
+</section><section style="text-align: left" lineno="263" class="slide " data-line="263" data-h="24" data-v="0">
+<h3 class="mume-header" id="bonus-autotests">Bonus: Autotests</h3>
+
+<p><img src="autotests.gif?0.26434838102780644" alt></p>
+</section><section style="text-align: left" lineno="268" class="slide " data-line="268" data-h="25" data-v="0">
+<h3 class="mume-header" id="bonus-preprocessor">Bonus: Preprocessor</h3>
+
+<p><img src="preprocessor.png?0.21942373746684218" alt></p>
+</section><section lineno="274" class="slide " data-line="274" data-h="26" data-v="0">
+<h2 class="mume-header" id="check-the-live-demo">Check the live demo!</h2>
+
+<h3 class="mume-header" id="ivanpopovgithubioinflux"><a href="http://ivanpopov.github.io/influx/">ivanpopov.github.io/influx/</a></h3>
+
+</section><section lineno="280" class="slide " data-line="280" data-h="27" data-v="0">
+<h2 class="mume-header" id="ok-whats-next">Ok, What&apos;s next?</h2>
+
+</section><section style="text-align: left" lineno="284" class="slide " data-line="284" data-h="28" data-v="0">
+<ul>
+<li>
+<h3>Integration into the engine</h3>
+</li>
+<li>
+<h3>Framework improvement</h3>
+</li>
+<li>
+<h3>Integration into toolset</h3>
+</li>
+<li>
+<h3>Blueprints</h3>
+</li>
+</ul>
+</section><section style="text-align: left" lineno="291" class="slide " data-line="291" data-h="29" data-v="0">
+<h3 class="mume-header" id="basic-pipeline-integration-into-the-engine">Basic pipeline integration into the engine</h3>
+
+<ul>
+<li>Framework bindings for c++
+<ul>
+<li>implement VM (~1 day)</li>
+<li>implement bytecode loaders (~1 day)</li>
+<li>interaction with compiler/translator (&lt; 1 week)</li>
+</ul>
+</li>
+<li>Shader cache integration
+<ul>
+<li>just call handwritten translator instead of FXC</li>
+<li>replace cache algo</li>
+</ul>
+</li>
+<li>implement same pipeline as in the demo above (&lt; 1 week)</li>
+</ul>
+<h4 class="mume-header" id="bonus-implement-gpu-based-pipeline">bonus: implement GPU based pipeline</h4>
+
+</section><section style="text-align: left" lineno="304" class="slide " data-line="304" data-h="30" data-v="0">
+<h3 class="mume-header" id="extended-pipeline-integration-into-the-engine">Extended pipeline integration into the engine</h3>
+
+<ul>
+<li>Requires access to &quot;register_common&quot;
+<ul>
+<li>requires extended macro support</li>
+<li>requires some improvments of HLSL support</li>
+<li>requires some binding backend on the c++ side</li>
+</ul>
+</li>
+<li>Requires complex integraion to Integration Studio (?)</li>
+</ul>
+</section><section style="text-align: left" lineno="314" class="slide " data-line="314" data-h="31" data-v="0">
+<h3 class="mume-header" id="framework-improvement">Framework improvement</h3>
+
+<ul>
+<li>Full HLSL Support (including preprocessor)</li>
+<li>Performance</li>
+<li>Translators improvments</li>
+<li>FXSL empowerment</li>
+<li>Langage service improvments
+<ul>
+<li>VS Code plugin</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 class="mume-header" id="bonus-pipeline-feature-batch-everything">Bonus: pipeline feature =&gt; batch everything</h4>
+
+</section><section style="text-align: left" lineno="326" class="slide " data-line="326" data-h="32" data-v="0">
+<h3 class="mume-header" id="integration-into-toolset">Integration into toolset</h3>
+
+<ul>
+<li>Basic integration as &quot;text doc&quot; linked with CLS to IS</li>
+<li>Extended integration with code highlighting</li>
+<li>Blueprints</li>
+<li><s>Integration with SSL</s></li>
+</ul>
+</section><section style="text-align: left" lineno="334" class="slide " data-line="334" data-h="33" data-v="0">
+<h3 class="mume-header" id="part-ii-art-approach">PART II: Art approach</h3>
+
+<h3 class="mume-header" id="just-blueprints-no-code">(Just blueprints, no code)</h3>
+
+</section><section style="text-align: left" lineno="338" class="slide " data-line="338" data-h="34" data-v="0">
+<p><img src="To-Be-Continued-BTTF.jpg?0.4888205559165564" alt></p>
+</section>
+      </div>
+    </div>
+    
+      </div>
+      
+      
+    
+    
+      <script>
+        Reveal.initialize({"margin":0.1,"theme":"night.css","slideNumber":true,"controls":true,"progress":true,"overview":true,"previewLinks":true,"height":900,"dependencies":[]})
+      </script>
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
